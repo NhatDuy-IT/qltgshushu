@@ -1,0 +1,194 @@
+/* ==========================================================================
+   SHUSHU — DESIGN TOKENS & GLASSMORPHISM VARIABLES
+   ========================================================================== */
+
+:root {
+  /* Fonts */
+  --font-sans: 'Be Vietnam Pro', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Dynamic Glassmorphism Controls (updated live by Theme module) */
+  --glass-blur: 22px;
+  --glass-opacity: 0.72;
+  --glass-strong-opacity: 0.88;
+
+  /* Accent Colors */
+  --accent: #18181b;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(24, 24, 27, 0.08);
+  --accent-ring: rgba(24, 24, 27, 0.18);
+
+  /* Status Colors (matching ShuShu specification) */
+  --status-pending: #18181b;      /* Sắp tới / Chờ xử lý: chấm đen */
+  --status-active: #881337;       /* Đang thực hiện / Đã chốt lịch: chấm đỏ đô */
+  --status-done: #38bdf8;         /* Hoàn thành: chấm xanh dương nhạt */
+
+  /* Semantic Colors */
+  --rose: #e11d48;
+  --rose-soft: rgba(244, 63, 94, 0.13);
+  --rose-border: rgba(244, 63, 94, 0.28);
+  --emerald: #059669;
+  --emerald-soft: rgba(16, 185, 129, 0.14);
+  --amber: #d97706;
+  --amber-soft: rgba(245, 158, 11, 0.14);
+  --sky: #0284c7;
+  --sky-soft: rgba(56, 189, 248, 0.16);
+  --violet: #7c3aed;
+  --violet-soft: rgba(139, 92, 246, 0.14);
+
+  /* Light Theme Surfaces */
+  --bg-surface-rgb: 255, 255, 255;
+  --glass-bg: rgba(var(--bg-surface-rgb), var(--glass-opacity));
+  --glass-bg-strong: rgba(var(--bg-surface-rgb), var(--glass-strong-opacity));
+  --glass-bg-subtle: rgba(var(--bg-surface-rgb), calc(var(--glass-opacity) * 0.65));
+  --glass-border: rgba(255, 255, 255, 0.62);
+  --glass-border-subtle: rgba(24, 24, 27, 0.08);
+  --glass-shadow: 0 12px 40px -10px rgba(24, 24, 27, 0.10), 0 2px 10px -2px rgba(24, 24, 27, 0.05);
+  --glass-shadow-sm: 0 4px 16px -4px rgba(24, 24, 27, 0.07);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+
+  /* Typography Colors */
+  --text-primary: #141417;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --text-faint: #a1a1aa;
+
+  /* Active Pill Highlight */
+  --nav-active-bg: #18181b;
+  --nav-active-text: #ffffff;
+  --nav-hover-bg: rgba(24, 24, 27, 0.06);
+
+  /* Inputs & Cards */
+  --input-bg: rgba(255, 255, 255, 0.68);
+  --input-border: rgba(24, 24, 27, 0.12);
+  --card-inner-bg: rgba(255, 255, 255, 0.62);
+  --card-hover-bg: rgba(255, 255, 255, 0.88);
+  --alert-deadline-bg: rgba(251, 113, 133, 0.16);
+  --alert-deadline-text: #9f1239;
+  --alert-booking-bg: rgba(113, 113, 122, 0.13);
+  --alert-booking-text: #27272a;
+
+  /* Layout Dimensions */
+  --sidebar-width: 264px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 150ms var(--ease);
+  --t-med: 240ms var(--ease);
+}
+
+/* Dark Theme Override */
+[data-theme="dark"] {
+  --bg-surface-rgb: 22, 22, 28;
+  --glass-bg: rgba(var(--bg-surface-rgb), var(--glass-opacity));
+  --glass-bg-strong: rgba(20, 20, 26, 0.92);
+  --glass-bg-subtle: rgba(var(--bg-surface-rgb), calc(var(--glass-opacity) * 0.65));
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-subtle: rgba(255, 255, 255, 0.09);
+  --glass-shadow: 0 18px 46px -12px rgba(0, 0, 0, 0.48), 0 4px 12px rgba(0, 0, 0, 0.28);
+  --glass-shadow-sm: 0 4px 16px -4px rgba(0, 0, 0, 0.32);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+
+  --status-pending: #f4f4f5;
+  --status-active: #fb7185;
+  --status-done: #38bdf8;
+
+  --nav-active-bg: #f4f4f5;
+  --nav-active-text: #18181b;
+  --nav-hover-bg: rgba(255, 255, 255, 0.08);
+
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --input-border: rgba(255, 255, 255, 0.14);
+  --card-inner-bg: rgba(255, 255, 255, 0.05);
+  --card-hover-bg: rgba(255, 255, 255, 0.09);
+  --alert-deadline-bg: rgba(244, 63, 94, 0.22);
+  --alert-deadline-text: #fda4af;
+  --alert-booking-bg: rgba(255, 255, 255, 0.12);
+  --alert-booking-text: #f4f4f5;
+}
+
+/* ==========================================================================
+   CURATED ARTISTIC WALLPAPERS (Calm, painterly, eye-friendly)
+   ========================================================================== */
+.wallpaper-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 0.5s ease, filter 0.4s ease;
+}
+
+/* 1. Dawn Silk (Default — airy pastel peach, lilac & morning mist) */
+body[data-wallpaper="dawn-silk"] .wallpaper-layer {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(251, 207, 232, 0.85) 0%, transparent 45%),
+    radial-gradient(circle at 86% 14%, rgba(196, 224, 255, 0.85) 0%, transparent 48%),
+    radial-gradient(circle at 74% 84%, rgba(254, 215, 170, 0.72) 0%, transparent 50%),
+    radial-gradient(circle at 22% 82%, rgba(221, 214, 254, 0.78) 0%, transparent 48%),
+    linear-gradient(135deg, #f7f3f0 0%, #ede9fe 52%, #e0f2fe 100%);
+}
+
+/* 2. Misty Pine (Botanical sage, eucalyptus & soft linen) */
+body[data-wallpaper="misty-pine"] .wallpaper-layer {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(167, 243, 208, 0.75) 0%, transparent 46%),
+    radial-gradient(circle at 84% 20%, rgba(186, 230, 253, 0.72) 0%, transparent 46%),
+    radial-gradient(circle at 70% 82%, rgba(217, 249, 157, 0.52) 0%, transparent 48%),
+    radial-gradient(circle at 25% 85%, rgba(209, 213, 219, 0.7) 0%, transparent 48%),
+    linear-gradient(145deg, #ecfdf5 0%, #e6f2ec 50%, #e0f2fe 100%);
+}
+
+/* 3. Warm Sand (Minimalist Kyoto beige, terracotta whisper & ivory) */
+body[data-wallpaper="warm-sand"] .wallpaper-layer {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(253, 230, 138, 0.55) 0%, transparent 45%),
+    radial-gradient(circle at 82% 24%, rgba(254, 205, 211, 0.65) 0%, transparent 48%),
+    radial-gradient(circle at 68% 84%, rgba(253, 186, 116, 0.58) 0%, transparent 50%),
+    linear-gradient(135deg, #faf5ef 0%, #f3e8dd 55%, #ece2d6 100%);
+}
+
+/* 4. Sakura Cloud (Soft blush rose, pearl & pale periwinkle) */
+body[data-wallpaper="sakura-cloud"] .wallpaper-layer {
+  background:
+    radial-gradient(circle at 22% 16%, rgba(253, 164, 175, 0.58) 0%, transparent 46%),
+    radial-gradient(circle at 82% 76%, rgba(249, 168, 212, 0.52) 0%, transparent 48%),
+    radial-gradient(circle at 78% 18%, rgba(199, 210, 254, 0.68) 0%, transparent 46%),
+    linear-gradient(140deg, #fff1f2 0%, #f5f3ff 52%, #fdf2f8 100%);
+}
+
+/* 5. Ocean Mist (Calm Scandinavian coastal blue & silver) */
+body[data-wallpaper="ocean-mist"] .wallpaper-layer {
+  background:
+    radial-gradient(circle at 15% 22%, rgba(125, 211, 252, 0.62) 0%, transparent 46%),
+    radial-gradient(circle at 85% 26%, rgba(165, 243, 252, 0.68) 0%, transparent 46%),
+    radial-gradient(circle at 62% 85%, rgba(196, 181, 253, 0.52) 0%, transparent 48%),
+    linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #eef2ff 100%);
+}
+
+/* 6. Midnight Aurora (Deep velvet night with muted aurora — stunning in dark mode) */
+body[data-wallpaper="midnight-aurora"] .wallpaper-layer {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(139, 92, 246, 0.42) 0%, transparent 44%),
+    radial-gradient(circle at 84% 24%, rgba(14, 165, 233, 0.36) 0%, transparent 46%),
+    radial-gradient(circle at 64% 84%, rgba(225, 29, 72, 0.32) 0%, transparent 48%),
+    linear-gradient(135deg, #0d1017 0%, #171926 52%, #111827 100%);
+}
+
+/* Dark theme dims bright light wallpapers gently so contrast stays crisp */
+[data-theme="dark"] body:not([data-wallpaper="midnight-aurora"]):not([data-wallpaper="custom"]) .wallpaper-layer,
+html[data-theme="dark"] body:not([data-wallpaper="midnight-aurora"]):not([data-wallpaper="custom"]) .wallpaper-layer {
+  filter: brightness(0.42) saturate(1.15);
+}

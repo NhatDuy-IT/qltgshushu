@@ -1,0 +1,14 @@
+{
+  "name": "shushu-workspace",
+  "version": "2.0.0",
+  "description": "ShuShu — All-in-One Work, Booking & Life Workspace PWA",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npx serve . -l 3000"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

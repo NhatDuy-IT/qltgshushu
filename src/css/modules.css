@@ -1,0 +1,1924 @@
+/* ==========================================================================
+   SHUSHU — MODULE SPECIFIC STYLES
+   ========================================================================== */
+
+/* Shared Panel Wrapper */
+.panel {
+  border-radius: var(--radius-xl);
+  padding: 20px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   A. MODULE: CÔNG VIỆC (2-COLUMN: TASK/BOOKING PANEL + MASTER CALENDAR)
+   ========================================================================== */
+.tasks-workspace {
+  display: grid;
+  grid-template-columns: 356px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.task-left-panel {
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  position: sticky;
+  top: 16px;
+}
+
+.task-panel-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-panel-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.task-panel-tabs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.task-panel-tabs .pill-btn {
+  text-align: center;
+  padding: 7px 10px;
+}
+
+.status-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 4px;
+}
+
+.status-group-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.status-group-count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 99px;
+  background: var(--accent-soft);
+  color: var(--text-muted);
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-card {
+  padding: 11px 13px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.task-card.is-done {
+  opacity: 0.72;
+}
+.task-card.is-done .task-card-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.task-card-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.task-card-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+  flex: 1;
+}
+
+.task-check-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1.5px solid var(--glass-border-subtle);
+  background: var(--input-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  flex-shrink: 0;
+  transition: all var(--t-fast);
+}
+
+.task-check-btn:hover {
+  border-color: var(--accent);
+}
+
+.task-check-btn.status-active {
+  border-color: var(--status-active);
+  background: rgba(136, 19, 55, 0.12);
+}
+
+.task-check-btn.status-done {
+  border-color: var(--status-done);
+  background: var(--status-done);
+  color: #ffffff;
+}
+
+.task-card-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.task-card-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.task-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-left: 27px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.task-time-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.task-time-chip.urgent {
+  color: var(--rose);
+}
+
+.task-price-chip {
+  font-weight: 700;
+  color: var(--emerald);
+}
+
+/* Master Calendar Panel */
+.calendar-panel {
+  border-radius: var(--radius-xl);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: calc(100vh - 32px);
+}
+
+.calendar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.calendar-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendar-month-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+}
+
+.calendar-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.calendar-nav-btns {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.calendar-subbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Month Grid */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  padding: 0 2px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.calendar-month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  flex: 1;
+}
+
+.cal-day-cell {
+  min-height: 112px;
+  padding: 7px 7px 6px;
+  border-radius: 14px;
+  background: var(--card-inner-bg);
+  border: 1px solid var(--glass-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+  overflow: hidden;
+}
+
+.cal-day-cell:hover {
+  background: var(--card-hover-bg);
+  border-color: rgba(24, 24, 27, 0.18);
+}
+
+.cal-day-cell.is-other-month {
+  opacity: 0.42;
+}
+
+.cal-day-cell.is-today {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.cal-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.cal-day-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.cal-day-cell.is-today .cal-day-num {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.cal-events {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cal-event-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  display: block;
+  border-left: 2.5px solid transparent;
+}
+
+/* Event color coding */
+.cal-event-pill.type-task {
+  background: rgba(24, 24, 27, 0.08);
+  color: var(--text-primary);
+  border-left-color: var(--status-pending);
+}
+[data-theme="dark"] .cal-event-pill.type-task {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cal-event-pill.type-booking {
+  background: var(--alert-booking-bg);
+  color: var(--alert-booking-text);
+  border-left-color: var(--status-active);
+}
+
+.cal-event-pill.type-personal {
+  background: var(--sky-soft);
+  color: var(--sky);
+  border-left-color: #0ea5e9;
+}
+
+/* Prominent Deadline & Booking Alert Pill */
+.cal-event-pill.is-deadline-alert {
+  background: var(--alert-deadline-bg);
+  color: var(--alert-deadline-text);
+  border-left-color: var(--rose);
+  font-weight: 700;
+}
+
+.cal-event-pill.is-booking-alert {
+  background: var(--alert-booking-bg);
+  color: var(--alert-booking-text);
+  border-left-color: var(--status-active);
+  font-weight: 700;
+}
+
+.cal-event-pill.is-done {
+  opacity: 0.58;
+  text-decoration: line-through;
+  border-left-color: var(--status-done);
+}
+
+.cal-more-btn {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-align: left;
+  transition: background var(--t-fast);
+}
+.cal-more-btn:hover {
+  background: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+/* Week & Day Calendar Views */
+.calendar-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  flex: 1;
+}
+
+.cal-week-col {
+  border-radius: 16px;
+  padding: 10px 8px;
+  background: var(--card-inner-bg);
+  border: 1px solid var(--glass-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 420px;
+}
+
+.cal-week-col.is-today {
+  border-color: var(--accent);
+}
+
+.cal-week-col-head {
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+  cursor: pointer;
+}
+
+.cal-week-dayname {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.cal-week-daynum {
+  font-size: 17px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.cal-day-agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cal-agenda-card {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   B. MODULE: DASHBOARD & HABIT TRACKER
+   ========================================================================== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.kpi-card {
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kpi-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.kpi-value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.kpi-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.dash-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-countdown-card {
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.countdown-pill {
+  padding: 5px 10px;
+  border-radius: 99px;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: var(--rose-soft);
+  color: var(--rose);
+  white-space: nowrap;
+}
+
+/* Habit Tracker */
+.habit-progress-wrap {
+  margin-bottom: 14px;
+}
+
+.habit-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--accent);
+  transition: width 320ms var(--ease);
+}
+
+.habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.habit-item {
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.habit-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.habit-toggle {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  border: 1.5px solid var(--glass-border-subtle);
+  background: var(--input-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--t-fast);
+}
+
+.habit-toggle.checked {
+  background: var(--emerald);
+  border-color: var(--emerald);
+  color: #fff;
+}
+
+.habit-streak {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: var(--amber-soft);
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+.habit-dots {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.habit-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+.habit-dot.done {
+  background: var(--emerald);
+}
+
+/* ==========================================================================
+   C. MODULE: REMINDER
+   ========================================================================== */
+.push-banner {
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.reminder-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 12px;
+}
+
+.reminder-card {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.reminder-card.is-past {
+  opacity: 0.65;
+}
+
+.reminder-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.reminder-time-lg {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   D. MODULE: FINANCE
+   ========================================================================== */
+.finance-charts-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.svg-chart-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.finance-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.tx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tx-item {
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tx-amount {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.tx-amount.income { color: var(--emerald); }
+.tx-amount.expense { color: var(--rose); }
+
+.donut-layout {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.donut-legend {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   E. MODULE: QUICK NOTE & PROJECT KANBAN
+   ========================================================================== */
+.notes-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.notes-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+.notes-grid {
+  columns: 3 270px;
+  column-gap: 14px;
+}
+
+.note-card {
+  break-inside: avoid;
+  margin-bottom: 14px;
+  padding: 15px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 18px;
+  position: relative;
+}
+
+.note-card.tint-cream { background: rgba(254, 243, 199, 0.55); }
+.note-card.tint-rose  { background: rgba(255, 228, 230, 0.58); }
+.note-card.tint-sky   { background: rgba(224, 242, 254, 0.60); }
+.note-card.tint-mint  { background: rgba(209, 250, 229, 0.58); }
+.note-card.tint-lilac { background: rgba(237, 233, 254, 0.60); }
+
+[data-theme="dark"] .note-card.tint-cream { background: rgba(217, 119, 6, 0.16); }
+[data-theme="dark"] .note-card.tint-rose  { background: rgba(225, 29, 72, 0.16); }
+[data-theme="dark"] .note-card.tint-sky   { background: rgba(2, 132, 199, 0.16); }
+[data-theme="dark"] .note-card.tint-mint  { background: rgba(5, 150, 105, 0.16); }
+[data-theme="dark"] .note-card.tint-lilac { background: rgba(124, 58, 237, 0.16); }
+
+.note-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Kanban Board */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.kanban-col {
+  border-radius: var(--radius-xl);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 460px;
+  transition: background var(--t-fast);
+}
+
+.kanban-col.drag-over {
+  outline: 2px dashed var(--accent);
+  outline-offset: -4px;
+}
+
+.kanban-col-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
+}
+
+.project-card {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: grab;
+}
+.project-card:active {
+  cursor: grabbing;
+}
+
+.subtask-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.subtask-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.subtask-row.done span {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   F. MODULE: RELAX (AMBIENT SOUND MIXER & POMODORO)
+   ========================================================================== */
+.relax-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.pomodoro-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.pomo-ring-wrap {
+  position: relative;
+  width: 224px;
+  height: 224px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pomo-ring-wrap svg {
+  transform: rotate(-90deg);
+}
+
+.pomo-time-display {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pomo-clock {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pomo-mode-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.sound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sound-card {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sound-card.is-playing {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.sound-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   G. MODULE: MÀU & KÍNH (THEME CUSTOMIZER)
+   ========================================================================== */
+.theme-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.wallpaper-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.wp-swatch {
+  height: 82px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  transition: transform var(--t-fast), border-color var(--t-fast);
+}
+
+.wp-swatch:hover {
+  transform: translateY(-2px);
+}
+
+.wp-swatch.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.wp-swatch span {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #18181b;
+  backdrop-filter: blur(8px);
+}
+
+.accent-swatches {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.accent-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  transition: transform var(--t-fast);
+}
+.accent-dot:hover { transform: scale(1.1); }
+.accent-dot.active {
+  outline: 2.5px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   H. MODULE: LƯU TRỮ & CÀI ĐẶT
+   ========================================================================== */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--glass-border-subtle);
+}
+.setting-row:last-child {
+  border-bottom: none;
+}
+
+.stat-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stat-mini {
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--card-inner-bg);
+  text-align: center;
+}
+
+.stat-mini-val {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.stat-mini-lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS: LAPTOP, IPAD LANDSCAPE, IPAD PORTRAIT & MOBILE
+   ========================================================================== */
+
+/* iPad Landscape & Compact Laptops (961px - 1180px) */
+@media (max-width: 1180px) {
+  .tasks-workspace {
+    grid-template-columns: 292px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .calendar-panel {
+    padding: 14px;
+  }
+  .cal-day-cell {
+    min-height: 94px;
+    padding: 6px 5px;
+  }
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .notes-grid {
+    columns: 2 240px;
+  }
+  .kanban-board {
+    gap: 12px;
+  }
+  .kanban-col {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .desktop-wd {
+    display: none;
+  }
+  .mobile-wd {
+    display: inline !important;
+  }
+}
+
+/* iPad Portrait (641px - 960px) */
+@media (max-width: 960px) {
+  .tasks-workspace {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .task-left-panel {
+    position: static;
+    max-height: none;
+  }
+  .calendar-panel {
+    min-height: auto;
+  }
+  .dashboard-grid,
+  .finance-charts-grid,
+  .finance-main-grid,
+  .relax-grid {
+    grid-template-columns: 1fr;
+  }
+  .kanban-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .kanban-col {
+    min-height: 300px;
+  }
+  .theme-grid,
+  .settings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .calendar-week-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cal-week-col {
+    min-height: 180px;
+  }
+}
+
+/* iPad Portrait 2-column task cards for smart space usage */
+@media (max-width: 960px) and (min-width: 641px) {
+  .task-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .cal-day-cell {
+    min-height: 96px;
+    padding: 7px 6px;
+  }
+}
+
+/* Narrow Tablet / Large Phone Transition (<= 760px) */
+@media (max-width: 760px) {
+  .kanban-board,
+  .theme-grid,
+  .settings-grid,
+  .calendar-week-grid {
+    grid-template-columns: 1fr;
+  }
+  .cal-week-col {
+    min-height: auto;
+  }
+}
+
+/* Mobile Phones (<= 640px — iPhone / Android) */
+@media (max-width: 640px) {
+  .panel {
+    padding: 14px;
+    border-radius: 20px;
+  }
+  .task-left-panel,
+  .calendar-panel {
+    padding: 13px;
+    border-radius: 20px;
+  }
+  .calendar-month-title {
+    font-size: 17px;
+  }
+  .calendar-toolbar,
+  .calendar-subbar {
+    gap: 8px;
+  }
+  .calendar-subbar .pill-group,
+  .calendar-controls-right .pill-group {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .calendar-month-grid {
+    gap: 4px;
+  }
+  .cal-day-cell {
+    min-height: 74px;
+    padding: 4px 3px;
+    border-radius: 10px;
+  }
+  .cal-day-num {
+    width: 21px;
+    height: 21px;
+    font-size: 11px;
+  }
+  .cal-event-pill {
+    font-size: 9.5px;
+    padding: 2px 4px;
+    border-radius: 5px;
+  }
+  .notes-grid {
+    columns: 1;
+  }
+  .reminder-list {
+    grid-template-columns: 1fr;
+  }
+  .sound-grid,
+  .wallpaper-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .kpi-card {
+    padding: 13px 14px;
+    border-radius: 16px;
+  }
+  .kpi-value {
+    font-size: 18px;
+  }
+  .donut-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .donut-legend {
+    width: 100%;
+  }
+  .stat-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .auth-card {
+    padding: 24px 20px 22px;
+  }
+}
+
+/* ==========================================================================
+   PHASE 2: LOGIN SCREEN, PIN LOCK, COMMAND PALETTE, FOCUS MODE, SWIPE & CRM
+   ========================================================================== */
+
+/* Single-User Private Login Screen */
+.auth-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-screen[hidden] {
+  display: none !important;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius-xl);
+  padding: 32px 28px 26px;
+  animation: modalPop 260ms var(--ease);
+}
+
+.auth-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-top: 12px;
+}
+
+.auth-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrap .form-input {
+  padding-right: 40px;
+}
+
+.pass-eye-btn {
+  position: absolute;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+}
+
+.auth-error {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--rose-soft);
+  border: 1px solid var(--rose-border);
+  color: var(--rose);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 11px 16px;
+  font-size: 14px;
+  border-radius: 13px;
+  margin-top: 4px;
+}
+
+.auth-footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Sidebar Quick Actions (Search Ctrl+K + Focus Mode) */
+.sidebar-quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.sqa-search-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.sqa-search-btn span:nth-child(2) {
+  flex: 1;
+}
+
+.kbd-hint {
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--text-secondary);
+}
+
+.pin-lock-icon {
+  font-size: 11px;
+  opacity: 0.78;
+}
+
+.nav-logout:hover {
+  color: var(--rose);
+}
+
+/* 4-Digit PIN Lock Gate */
+.pin-gate-wrap {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.pin-gate-card {
+  width: 100%;
+  max-width: 340px;
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pin-dots {
+  display: flex;
+  gap: 14px;
+  margin: 4px 0;
+}
+
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  transition: all 140ms var(--ease);
+}
+
+.pin-dot.filled {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.12);
+}
+
+.pin-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 66px);
+  gap: 10px;
+}
+
+.pin-key {
+  height: 54px;
+  border-radius: 16px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  background: var(--card-inner-bg);
+  border: 1px solid var(--glass-border-subtle);
+  transition: transform 100ms ease, background var(--t-fast);
+}
+
+.pin-key:hover {
+  background: var(--card-hover-bg);
+}
+
+.pin-key:active {
+  transform: scale(0.94);
+}
+
+/* Calendar Drag & Drop Reschedule */
+.cal-event-pill[draggable="true"] {
+  cursor: grab;
+}
+.cal-event-pill[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+.cal-day-cell.cal-drop-target {
+  outline: 2px dashed var(--accent);
+  outline-offset: -3px;
+  background: var(--accent-soft);
+  transform: scale(1.015);
+}
+
+/* Booking Conflict Detection Banner */
+.conflict-box {
+  padding: 11px 13px;
+  border-radius: 13px;
+  background: var(--amber-soft);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  color: var(--text-primary);
+  font-size: 12.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Mini CRM Autocomplete Dropdown */
+.crm-input-wrap {
+  position: relative;
+}
+
+.crm-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 60;
+  border-radius: 14px;
+  padding: 6px;
+  max-height: 210px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.crm-dropdown[hidden] {
+  display: none;
+}
+
+.crm-option {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: background var(--t-fast);
+}
+
+.crm-option:hover {
+  background: var(--accent-soft);
+}
+
+/* Mobile Swipe Gestures on Task Cards */
+.swipe-card-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.swipe-bg-left,
+.swipe-bg-right {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.swipe-bg-right {
+  justify-content: flex-start;
+  background: rgba(16, 185, 129, 0.22);
+  color: var(--emerald);
+}
+
+.swipe-bg-left {
+  justify-content: flex-end;
+  background: rgba(245, 158, 11, 0.22);
+  color: var(--amber);
+}
+
+.swipe-card-wrap.swiping-right .swipe-bg-right { opacity: 1; }
+.swipe-card-wrap.swiping-left .swipe-bg-left { opacity: 1; }
+
+.swipe-card-wrap .task-card {
+  position: relative;
+  z-index: 2;
+  touch-action: pan-y;
+}
+
+/* Command Palette (Ctrl + K) */
+.cmd-overlay {
+  align-items: flex-start;
+  padding-top: min(12vh, 92px);
+}
+
+.cmd-card {
+  width: 100%;
+  max-width: 580px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: modalPop 180ms var(--ease);
+}
+
+.cmd-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+}
+
+.cmd-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.cmd-results {
+  max-height: 410px;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cmd-group-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  padding: 8px 10px 4px;
+  text-transform: uppercase;
+}
+
+.cmd-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  text-align: left;
+  transition: background var(--t-fast);
+}
+
+.cmd-item:hover,
+.cmd-item.selected {
+  background: var(--nav-active-bg);
+  color: var(--nav-active-text);
+}
+
+.cmd-item.selected .muted,
+.cmd-item:hover .muted {
+  color: inherit;
+  opacity: 0.78;
+}
+
+.cmd-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--glass-border-subtle);
+}
+
+/* Focus Mode Fullscreen Glass Overlay */
+.focus-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(12, 12, 18, 0.36);
+  backdrop-filter: blur(26px) saturate(150%);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  animation: fadeIn 200ms ease;
+}
+
+.focus-overlay[hidden] {
+  display: none;
+}
+
+.focus-container {
+  width: 100%;
+  max-width: 580px;
+  border-radius: var(--radius-xl);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.focus-task-box {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--card-inner-bg);
+  border: 1px solid var(--glass-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.focus-sound-bar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .focus-sound-bar {
+    grid-template-columns: 1fr;
+  }
+  .focus-container {
+    padding: 20px 16px;
+  }
+}
+
+/* ==========================================================================
+   CUSTOM CALENDAR PHOTO BACKGROUND (HIGH-CONTRAST LUMINOUS TEXT & NUMBERS)
+   ========================================================================== */
+.calendar-panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #141418;
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+.calendar-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('/public/images/calendar-bg.jpg');
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  transform: scale(1.01);
+}
+
+.calendar-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 12, 16, 0.46) 0%,
+    rgba(12, 12, 16, 0.28) 48%,
+    rgba(12, 12, 16, 0.50) 100%
+  );
+  pointer-events: none;
+}
+
+/* Crisp Luminous Header, Weekdays & Legend */
+.calendar-panel .calendar-month-title {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+
+.calendar-panel .calendar-weekday {
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.72);
+}
+
+.calendar-panel .calendar-subbar,
+.calendar-panel .calendar-subbar span,
+.calendar-panel .muted {
+  color: rgba(255, 255, 255, 0.90) !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+}
+
+.calendar-panel .status-dot.pending {
+  background: #ffffff;
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.45);
+}
+
+/* Frosted High-Contrast Controls & Pill Filters */
+.calendar-panel .pill-group {
+  background: rgba(16, 16, 22, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.calendar-panel .pill-btn {
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: none;
+}
+
+.calendar-panel .pill-btn:hover {
+  color: #ffffff;
+}
+
+.calendar-panel .pill-btn.active {
+  background: #ffffff;
+  color: #141417;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+}
+
+.calendar-panel .calendar-nav-btns .icon-btn,
+.calendar-panel .calendar-nav-btns .btn-glass {
+  background: rgba(16, 16, 22, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.calendar-panel .calendar-nav-btns .icon-btn:hover,
+.calendar-panel .calendar-nav-btns .btn-glass:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Smoked Frosted Glass Day Cells — Photo Shines Through & Numbers Pop */
+.calendar-panel .cal-day-cell,
+.calendar-panel .cal-week-col {
+  background: rgba(16, 16, 22, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.calendar-panel .cal-day-cell:hover,
+.calendar-panel .cal-week-col:hover {
+  background: rgba(16, 16, 22, 0.60);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.calendar-panel .cal-day-cell.is-other-month {
+  opacity: 0.62;
+  background: rgba(12, 12, 16, 0.28);
+}
+
+.calendar-panel .cal-day-cell.is-today,
+.calendar-panel .cal-week-col.is-today {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.90);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72), 0 0 18px rgba(255, 255, 255, 0.14);
+}
+
+.calendar-panel .cal-day-num,
+.calendar-panel .cal-week-daynum,
+.calendar-panel .cal-week-dayname {
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.78);
+}
+
+.calendar-panel .cal-day-header > span:last-child:not(.cal-day-num) {
+  color: rgba(255, 255, 255, 0.86) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+}
+
+.calendar-panel .cal-day-cell.is-today .cal-day-num {
+  background: #ffffff;
+  color: #141417;
+  text-shadow: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* High-Contrast Luminous Event Pills on Photo Background */
+.calendar-panel .cal-event-pill {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.28);
+  text-shadow: none;
+}
+
+.calendar-panel .cal-event-pill.type-task {
+  background: rgba(255, 255, 255, 0.92);
+  color: #141417;
+  border-left-color: #18181b;
+}
+
+.calendar-panel .cal-event-pill.type-booking,
+.calendar-panel .cal-event-pill.is-booking-alert {
+  background: rgba(255, 241, 242, 0.95);
+  color: #881337;
+  border-left-color: #be123c;
+}
+
+.calendar-panel .cal-event-pill.is-deadline-alert {
+  background: rgba(254, 205, 211, 0.97);
+  color: #9f1239;
+  border-left-color: #e11d48;
+}
+
+.calendar-panel .cal-event-pill.type-personal {
+  background: rgba(224, 242, 254, 0.95);
+  color: #0369a1;
+  border-left-color: #0284c7;
+}
+
+.calendar-panel .cal-event-pill.is-done {
+  opacity: 0.78;
+}
+
+.calendar-panel .cal-more-btn {
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.45);
+  text-shadow: none;
+}
+
+.calendar-panel .cal-more-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Day View Agenda Cards on Photo Background */
+.calendar-panel .cal-agenda-card {
+  background: rgba(255, 255, 255, 0.90);
+  color: #141417;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.calendar-panel .cal-agenda-card .muted {
+  color: #52525b !important;
+  text-shadow: none;
+}
+
+[data-theme="dark"] .calendar-panel .cal-agenda-card {
+  background: rgba(22, 22, 28, 0.84);
+  color: #f4f4f5;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="dark"] .calendar-panel .cal-agenda-card .muted {
+  color: #d4d4d8 !important;
+}
+
+.calendar-panel .cal-day-cell.cal-drop-target {
+  outline: 2px dashed #ffffff;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#18181b" />
+  <meta name="description"
+    content="ShuShu — Không gian làm việc, quản lý Booking khách hàng, lịch trình cá nhân, tài chính, ghi chú và thư giãn All-in-One." />
+
+  <!-- PWA & iOS Support -->
+  <link rel="manifest" href="/public/manifest.json" />
+  <link rel="shortcut icon" href="/favicon.ico?v=11" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=11" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/icon-192.png?v=11" />
+  <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png?v=11" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ShuShu" />
+
+  <title>ShuShu — Work, Booking &amp; Life Workspace</title>
+
+  <!-- Fonts with graceful offline system fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/css/variables.css?v=11" />
+  <link rel="stylesheet" href="/src/css/base.css?v=11" />
+  <link rel="stylesheet" href="/src/css/layout.css?v=11" />
+  <link rel="stylesheet" href="/src/css/modules.css?v=11" />
+</head>
+
+<body class="is-logged-out" data-wallpaper="dawn-silk">
+  <!-- Artistic Background Wallpaper Layer -->
+  <div id="wallpaper-layer" class="wallpaper-layer" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       SINGLE-USER PRIVATE LOGIN SCREEN (LOGIN-ONLY — NO SIGN UP)
+       ====================================================================== -->
+  <section id="auth-screen" class="auth-screen" aria-label="Đăng nhập riêng tư">
+    <div class="auth-card glass-panel-strong">
+      <div class="auth-logo-wrap">
+        <div class="brand-logo brand-logo-lg">
+          <img src="/public/icons/logo-circle.png?v=11" alt="ShuShu Logo" class="brand-logo-img" />
+        </div>
+        <h1 class="auth-title">ShuShu</h1>
+        <p class="auth-subtitle">Không gian làm việc &amp; Booking riêng tư</p>
+      </div>
+
+      <form id="login-form" class="auth-form" autocomplete="off">
+        <div class="form-group">
+          <label class="form-label" for="login-identifier">Tài khoản hoặc Email</label>
+          <input id="login-identifier" name="identifier" class="form-input" type="text" required autocomplete="off"
+            placeholder="Nhập tên tài khoản..." />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Mật khẩu</label>
+          <div class="password-input-wrap">
+            <input id="login-password" name="password" class="form-input" type="password" required
+              autocomplete="new-password" placeholder="Nhập mật khẩu..." />
+            <button type="button" id="toggle-pass-vis" class="icon-btn pass-eye-btn" aria-label="Hiện/ẩn mật khẩu"
+              title="Hiện/ẩn mật khẩu">
+              <span data-icon="eye"></span>
+            </button>
+          </div>
+        </div>
+
+        <div id="login-error" class="auth-error" hidden></div>
+
+        <button type="submit" id="login-submit-btn" class="btn btn-dark auth-submit-btn">
+          Đăng nhập vào ShuShu
+        </button>
+
+        <div class="auth-footer-note">
+          <span class="sync-dot"></span>
+          <span id="auth-mode-label">Tài khoản cá nhân • Tự động lưu phiên đăng nhập</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       MAIN WORKSPACE SHELL (HIDDEN UNTIL AUTHENTICATED)
+       ====================================================================== -->
+  <div id="app-shell" class="app-shell" hidden>
+    <!-- Desktop Fixed Sidebar -->
+    <aside id="sidebar" class="sidebar glass-panel" aria-label="Điều hướng chính">
+      <div class="sidebar-top">
+        <a href="#tasks" class="brand" data-nav="tasks">
+          <div class="brand-logo">
+            <img src="/public/icons/logo-circle.png?v=11" alt="ShuShu Logo" class="brand-logo-img" />
+          </div>
+          <div class="brand-meta">
+            <span class="brand-name">ShuShu</span>
+            <span class="brand-sync" id="sync-status-badge" title="Trạng thái đồng bộ">
+              <span class="sync-dot"></span>
+              <span class="sync-text">Offline-First</span>
+            </span>
+          </div>
+        </a>
+        <button id="mobile-drawer-close" class="icon-btn mobile-only" aria-label="Đóng menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Power-User Quick Bar: Ctrl+K Search + Focus Mode -->
+      <div class="sidebar-quick-actions">
+        <button type="button" id="sidebar-search-btn" class="sqa-search-btn glass-card" title="Tìm kiếm nhanh (Ctrl+K)">
+          <span class="nav-icon" data-icon="search" style="width:15px;height:15px;"></span>
+          <span>Tìm nhanh...</span>
+          <kbd class="kbd-hint">⌘K</kbd>
+        </button>
+        <button type="button" id="sidebar-focus-btn" class="icon-btn glass-card"
+          title="Bật chế độ Tập trung (Focus Mode)" aria-label="Chế độ Tập trung">
+          <span class="nav-icon" data-icon="target"></span>
+        </button>
+      </div>
+
+      <div class="sidebar-scroll">
+        <div class="nav-group">
+          <div class="nav-group-label">WORKSPACE</div>
+          <nav class="nav-list" id="main-nav">
+            <button class="nav-item" data-nav="dashboard">
+              <span class="nav-icon" data-icon="layout-dashboard"></span>
+              <span class="nav-label">Dashboard</span>
+            </button>
+            <button class="nav-item active" data-nav="tasks">
+              <span class="nav-icon" data-icon="briefcase"></span>
+              <span class="nav-label">Công việc</span>
+              <span class="nav-badge" id="badge-tasks" hidden>0</span>
+            </button>
+            <button class="nav-item" data-nav="reminders">
+              <span class="nav-icon" data-icon="bell"></span>
+              <span class="nav-label">Reminder</span>
+              <span class="nav-badge" id="badge-reminders" hidden>0</span>
+            </button>
+            <button class="nav-item" data-nav="finance">
+              <span class="nav-icon" data-icon="wallet"></span>
+              <span class="nav-label">Finance</span>
+              <span class="pin-lock-icon" id="lock-badge-finance" hidden title="Đang khóa bằng mã PIN">🔒</span>
+            </button>
+            <button class="nav-item" data-nav="notes">
+              <span class="nav-icon" data-icon="sticky-note"></span>
+              <span class="nav-label">Quick Note</span>
+              <span class="pin-lock-icon" id="lock-badge-notes" hidden title="Đang khóa bằng mã PIN">🔒</span>
+            </button>
+            <button class="nav-item" data-nav="projects">
+              <span class="nav-icon" data-icon="kanban"></span>
+              <span class="nav-label">Project</span>
+            </button>
+            <button class="nav-item" data-nav="relax">
+              <span class="nav-icon" data-icon="headphones"></span>
+              <span class="nav-label">Relax</span>
+              <span class="relax-playing-dot" id="relax-playing-dot" hidden></span>
+            </button>
+            <button class="nav-item" data-nav="theme">
+              <span class="nav-icon" data-icon="palette"></span>
+              <span class="nav-label">Màu &amp; kính</span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="nav-group nav-group-secondary">
+          <div class="nav-divider"></div>
+          <nav class="nav-list">
+            <button class="nav-item" data-nav="storage">
+              <span class="nav-icon" data-icon="archive"></span>
+              <span class="nav-label">Lưu trữ</span>
+            </button>
+            <button class="nav-item" data-nav="settings">
+              <span class="nav-icon" data-icon="settings"></span>
+              <span class="nav-label">Cài đặt</span>
+            </button>
+            <button class="nav-item nav-logout" id="sidebar-logout-btn" type="button">
+              <span class="nav-icon" data-icon="log-out"></span>
+              <span class="nav-label" id="sidebar-user-label">Đăng xuất</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Fixed Quick Note Widget at Sidebar Bottom -->
+      <div class="sidebar-quick-note">
+        <div class="sqn-header">
+          <span class="sqn-title">QUICK NOTE</span>
+          <span class="sqn-hint">⌘↵</span>
+        </div>
+        <textarea id="sidebar-note-input" class="sqn-textarea" rows="2"
+          placeholder="Đang nghĩ gì? Gõ ở đây..."></textarea>
+        <div class="sqn-footer">
+          <button id="sidebar-note-save" class="btn btn-dark btn-xs sqn-save-btn" type="button">
+            + Lưu
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile Backdrop for Drawer -->
+    <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+    <!-- Main Content Column -->
+    <div class="main-wrapper">
+      <!-- Mobile Header -->
+      <header class="mobile-header glass-panel mobile-only">
+        <div class="mobile-header-left">
+          <button id="mobile-menu-btn" class="icon-btn" aria-label="Mở menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="17" x2="20" y2="17" />
+            </svg>
+          </button>
+          <div class="brand-logo brand-logo-sm">
+            <img src="/public/icons/logo-circle.png?v=11" alt="ShuShu" class="brand-logo-img" />
+          </div>
+          <span class="mobile-page-title" id="mobile-page-title">Công việc</span>
+        </div>
+        <div class="mobile-header-right" style="display:flex; align-items:center; gap:6px;">
+          <button id="mobile-search-btn" class="icon-btn" aria-label="Tìm kiếm nhanh">
+            <span class="nav-icon" data-icon="search"></span>
+          </button>
+          <button id="mobile-focus-btn" class="icon-btn" aria-label="Chế độ Tập trung">
+            <span class="nav-icon" data-icon="target"></span>
+          </button>
+          <button id="mobile-quick-add" class="btn btn-dark btn-xs">+ Thêm</button>
+        </div>
+      </header>
+
+      <!-- Dynamic Workspace Content -->
+      <main id="app-main" class="app-main" tabindex="-1"></main>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav glass-panel mobile-only" aria-label="Điều hướng nhanh">
+      <button class="mbn-item" data-nav="dashboard">
+        <span class="nav-icon" data-icon="layout-dashboard"></span>
+        <span>Tổng quan</span>
+      </button>
+      <button class="mbn-item active" data-nav="tasks">
+        <span class="nav-icon" data-icon="briefcase"></span>
+        <span>Công việc</span>
+      </button>
+      <button class="mbn-item" data-nav="reminders">
+        <span class="nav-icon" data-icon="bell"></span>
+        <span>Nhắc lịch</span>
+      </button>
+      <button class="mbn-item" data-nav="finance">
+        <span class="nav-icon" data-icon="wallet"></span>
+        <span>Tài chính</span>
+      </button>
+      <button class="mbn-item" id="mbn-more-btn" type="button">
+        <span class="nav-icon" data-icon="grid"></span>
+        <span>Thêm</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Global Modal Portal -->
+  <div id="modal-root" class="modal-overlay" hidden role="dialog" aria-modal="true">
+    <div class="modal-card glass-panel-strong" id="modal-card"></div>
+  </div>
+
+  <!-- Command Palette (Ctrl + K) Overlay -->
+  <div id="cmd-palette-root" class="modal-overlay cmd-overlay" hidden role="dialog" aria-modal="true"
+    aria-label="Tìm kiếm nhanh">
+    <div class="cmd-card glass-panel-strong" id="cmd-card"></div>
+  </div>
+
+  <!-- Focus Mode Fullscreen Glass Overlay -->
+  <div id="focus-mode-root" class="focus-overlay" hidden role="dialog" aria-modal="true" aria-label="Chế độ Tập trung">
+  </div>
+
+  <!-- Toast Stack -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- App Bootstrap -->
+  <script type="module" src="/src/js/app.js?v=11"></script>
+</body>
+
+</html>

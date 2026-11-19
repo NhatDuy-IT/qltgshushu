@@ -1,0 +1,53 @@
+{
+  "name": "ShuShu — All-in-One Work, Booking & Life Workspace",
+  "short_name": "ShuShu",
+  "description": "Không gian làm việc, quản lý Booking khách hàng, lịch trình cá nhân, tài chính, ghi chú và thư giãn toàn diện.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4f1ee",
+  "theme_color": "#18181b",
+  "lang": "vi",
+  "categories": ["productivity", "business", "lifestyle"],
+  "icons": [
+    {
+      "src": "/public/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Công việc & Booking",
+      "short_name": "Công việc",
+      "url": "/#tasks",
+      "icons": [{ "src": "/public/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Nhắc lịch (Reminder)",
+      "short_name": "Reminder",
+      "url": "/#reminders",
+      "icons": [{ "src": "/public/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Tài chính (Finance)",
+      "short_name": "Finance",
+      "url": "/#finance",
+      "icons": [{ "src": "/public/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Thư giãn & Pomodoro",
+      "short_name": "Relax",
+      "url": "/#relax",
+      "icons": [{ "src": "/public/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
