@@ -68,11 +68,11 @@ class ShuShuApp {
     if (auth.isAuthenticated()) {
       await this._enterWorkspace();
     } else {
-      this._showLoginGate();
+      this._showLoginGate({ clearInputs: false });
     }
   }
 
-  _showLoginGate() {
+  _showLoginGate({ clearInputs = true } = {}) {
     storage.stopRealtimeSync();
     notifications.stopWatcher();
     audioEngine.stopAll();
@@ -92,16 +92,17 @@ class ShuShuApp {
     const userLbl = document.getElementById('sidebar-user-label');
     if (userLbl) userLbl.textContent = 'Đăng xuất';
 
-    // Xóa sạch toàn bộ thông tin vừa nhập trong form đăng nhập
-    const loginForm = document.getElementById('login-form');
-    if (loginForm) loginForm.reset();
     const idInput = document.getElementById('login-identifier');
     const passInput = document.getElementById('login-password');
     const errBox = document.getElementById('login-error');
-    if (idInput) idInput.value = '';
-    if (passInput) {
-      passInput.value = '';
-      passInput.type = 'password';
+    if (clearInputs) {
+      const loginForm = document.getElementById('login-form');
+      if (loginForm) loginForm.reset();
+      if (idInput) idInput.value = '';
+      if (passInput) {
+        passInput.value = '';
+        passInput.type = 'password';
+      }
     }
     if (errBox) {
       errBox.textContent = '';
@@ -116,7 +117,9 @@ class ShuShuApp {
     document.body.classList.add('is-logged-out');
     this.appShell.hidden = true;
     this.authScreen.hidden = false;
-    idInput?.focus();
+    if (clearInputs || !document.activeElement || document.activeElement === document.body) {
+      idInput?.focus();
+    }
   }
 
   async _enterWorkspace() {
